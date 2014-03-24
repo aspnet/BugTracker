@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bug tracker application</title>
+    <script src="/Scripts/jquery-2.0.3.min.js"></script>
+    <script src="/Scripts/knockout-3.0.0.js"></script>
+    <script src="/Scripts/jquery.signalR-2.0.1.min.js"></script>
+    <script src="signalr/hubs" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var viewModel;
+
+            $.connection.hub.logging = true;
+            var bugsHub = $.connection.bugs;
+
+            bugsHub.client.moved = function (item) {
+                viewModel.moveBug(item);
+            };
+
+            //{ transport: 'longPolling' }?
+            $.connection.hub.start().done(function () {
+                console.log('hub connection open');
+            });
+
+            $.getJSON('/api/bugs', function (data) {
+                var model = data;
+
+                viewModel = {
+                    backlog: ko.observableArray(model.filter(function (element) { return element.state === 'backlog'; })),
+                    working: ko.observableArray(model.filter(function (element) { return element.state === 'working'; })),
+                    done: ko.observableArray(model.filter(function (element) { return element.state === 'done'; })),
+                    changeState: function (bug, newState) {
+                        $.post('/api/bugs/' + newState, { 'id': bug.id });
+                    },
+                    moveBug: function (bug) {
+                        //remove the item from one of the existing lists
+                        [this.backlog, this.working, this.done].forEach(function (list) {
+                            list().forEach(function (item) {
+                                if (item.id == bug.id) {
+                                    console.log('removing item ' + item.id);
+                                    list.remove(item);
+                                }
+                            });
+                        });
+
+                        // add bug to correct list
+                        this[bug.state].push(bug);
+                    }
+                };
+                ko.applyBindings(viewModel);
+            })
+        })
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Bug tracker Single Page application</h1>
+    </header>
+    <section>
+        <h2>Backlog</h2>
+        <ul class="bugs" id="backlog" data-bind="foreach:backlog">
+            <li>
+                [<span data-bind="text: id"></span>] <span data-bind="text: title"></span>: <span data-bind="text: description"></span>
+                <ul>
+                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'working')">Move to working</a></li>
+                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'done')">Move to done</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Working</h2>
+        <ul class="bugs" id="working" data-bind="foreach:working">
+            <li>
+                [<span data-bind="text: id"></span>] <span data-bind="text: title"></span>: <span data-bind="text: description"></span>
+                <ul>
+                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'backlog')">Move to backlog</a></li>
+                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'done')">Move to done</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Done</h2>
+        <ul class="bugs" id="done" data-bind="foreach:done">
+            <li>
+                [<span data-bind="text: id"></span>] <span data-bind="text: title"></span>: <span data-bind="text: description"></span>
+                <ul>
+                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'backlog')">Move to backlog</a></li>
+                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'working')">Move to working</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.k10", "src\BugTracker\BugTracker.k10.csproj", "{E89E14C7-6755-4282-AAC2-946D6854973C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.net45", "src\BugTracker\BugTracker.net45.csproj", "{F33B32EB-BE3A-4E1D-9D91-FDC4C9E46C93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E89E14C7-6755-4282-AAC2-946D6854973C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E89E14C7-6755-4282-AAC2-946D6854973C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E89E14C7-6755-4282-AAC2-946D6854973C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E89E14C7-6755-4282-AAC2-946D6854973C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F33B32EB-BE3A-4E1D-9D91-FDC4C9E46C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33B32EB-BE3A-4E1D-9D91-FDC4C9E46C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33B32EB-BE3A-4E1D-9D91-FDC4C9E46C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33B32EB-BE3A-4E1D-9D91-FDC4C9E46C93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

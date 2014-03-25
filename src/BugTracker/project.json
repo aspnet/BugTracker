@@ -16,7 +16,11 @@
         "Microsoft.AspNet.StaticFiles": "0.1-alpha-*",
         "Microsoft.AspNet.SignalR.Server": "0.1-alpha-*",
         "Microsoft.AspNet.Hosting": "0.1-alpha-*",
-        "Microsoft.AspNet.Server.WebListener": "0.1-alpha-*"
+        "Microsoft.AspNet.Server.WebListener": "0.1-alpha-*",
+        "System.Runtime": "4.0.20.0",
+        "System.Dynamic.Runtime": "4.0.0.0",
+        "System.Threading.Tasks": "4.0.0.0",
+        "System.ComponentModel": "4.0.0.0"
     },
     "commands": {
         "web": "Microsoft.AspNet.Hosting server.name=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001"
@@ -25,11 +29,7 @@
         "net45": {},
         "k10": {
             "System.Collections": "4.0.0.0",
-            "System.Linq": "4.0.0.0",
-            "System.Runtime": "4.0.20.0",
-            "System.Dynamic.Runtime": "4.0.0.0",
-            "System.Threading.Tasks": "4.0.0.0",
-            "System.ComponentModel": "4.0.0.0"
+            "System.Linq": "4.0.0.0"
         }
     }
 }

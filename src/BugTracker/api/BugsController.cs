@@ -1,4 +1,4 @@
-﻿using BugTracker.Web.Model;
+﻿using BugTracker.Model;
 using BugTrackerAsOwinApp.Hubs;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.SignalR;

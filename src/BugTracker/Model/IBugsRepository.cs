@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BugTracker.Web.Model
+namespace BugTracker.Model
 {
     public interface IBugsRepository
     {

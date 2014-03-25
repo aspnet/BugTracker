@@ -17,8 +17,8 @@
                 viewModel.moveBug(item);
             };
 
-            //{ transport: 'longPolling' }?
-            $.connection.hub.start().done(function () {
+            //Bug: Takes multiple clicks if transport negotiation allowed.
+            $.connection.hub.start({ transport: 'longPolling' }).done(function () {
                 console.log('hub connection open');
             });
 

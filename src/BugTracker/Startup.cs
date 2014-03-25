@@ -13,42 +13,45 @@ using Microsoft.AspNet.StaticFiles;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.DependencyInjection.NestedProviders;
 
-public class Startup
+namespace BugTracker
 {
-    public void Configuration(IBuilder app)
+    public class Startup
     {
-        var serviceProvider = new ServiceCollection()
-                .Add(MvcServices.GetDefaultServices())
-                .Add(SignalRServices.GetServices())
-                .BuildServiceProvider(app.ServiceProvider);
-
-        app.UseContainer(serviceProvider);
-
-        //Configure static files
-        app.UseFileServer();
-
-        //Configure WebFx
-        var routes = new RouteCollection()
+        public void Configuration(IBuilder app)
         {
-            DefaultHandler = new MvcApplication(serviceProvider),
-        };
+            var serviceProvider = new ServiceCollection()
+                     .Add(MvcServices.GetDefaultServices())
+                     .Add(SignalRServices.GetServices())
+                     .BuildServiceProvider(app.ServiceProvider);
 
-        routes.MapRoute(
-            "{controller}/{action}",
-            new { controller = "Home", action = "Index" });
+            app.UseContainer(serviceProvider);
 
-        routes.MapRoute(
-            "api/{controller}/{action}",
-            new { controller = "Home", action = "Index" });
+            //Configure static files
+            app.UseFileServer();
 
-        routes.MapRoute(
-            "api/{controller}",
-            new { controller = "Home" });
-        
-        //Configure MVC
-        app.UseRouter(routes);
-        
-        //Configure SignalR
-        app.MapSignalR();
+            //Configure WebFx
+            var routes = new RouteCollection()
+            {
+                DefaultHandler = new MvcApplication(serviceProvider),
+            };
+
+            routes.MapRoute(
+                "{controller}/{action}",
+                new { controller = "Home", action = "Index" });
+
+            routes.MapRoute(
+                "api/{controller}/{action}",
+                new { controller = "Home", action = "Index" });
+
+            routes.MapRoute(
+                "api/{controller}",
+                new { controller = "Home" });
+
+            //Configure MVC
+            app.UseRouter(routes);
+
+            //Configure SignalR
+            app.MapSignalR();
+        }
     }
 }

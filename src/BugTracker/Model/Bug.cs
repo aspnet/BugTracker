@@ -1,4 +1,4 @@
-﻿namespace BugTracker.Web.Model
+﻿namespace BugTracker.Model
 {
     public class Bug
     {

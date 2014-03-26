@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using Microsoft.AspNet.Abstractions;
-using Microsoft.AspNet.ConfigurationModel;
 using Microsoft.AspNet.DependencyInjection;
 using Microsoft.AspNet.DependencyInjection.Fallback;
 using Microsoft.AspNet.RequestContainer;
@@ -11,7 +10,7 @@ using Microsoft.AspNet.Routing;
 using Microsoft.AspNet;
 using Microsoft.AspNet.StaticFiles;
 using Microsoft.AspNet.SignalR;
-using Microsoft.AspNet.DependencyInjection.NestedProviders;
+using Microsoft.AspNet.Diagnostics;
 
 namespace BugTracker
 {
@@ -19,12 +18,17 @@ namespace BugTracker
     {
         public void Configuration(IBuilder app)
         {
+            app.UseErrorPage(new ErrorPageOptions() { ShowCookies = true, ShowEnvironment = true, ShowExceptionDetails = true, ShowHeaders = true, ShowQuery = true, ShowSourceCode = true});
+
             var serviceProvider = new ServiceCollection()
                      .Add(MvcServices.GetDefaultServices())
                      .Add(SignalRServices.GetServices())
                      .BuildServiceProvider(app.ServiceProvider);
 
             app.UseContainer(serviceProvider);
+
+            //Configure SignalR
+            app.MapSignalR();
 
             //Configure static files
             app.UseFileServer();
@@ -49,9 +53,6 @@ namespace BugTracker
 
             //Configure MVC
             app.UseRouter(routes);
-
-            //Configure SignalR
-            app.MapSignalR();
         }
     }
 }

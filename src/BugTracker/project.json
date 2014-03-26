@@ -20,7 +20,8 @@
         "System.Runtime": "4.0.20.0",
         "System.Dynamic.Runtime": "4.0.0.0",
         "System.Threading.Tasks": "4.0.0.0",
-        "System.ComponentModel": "4.0.0.0"
+        "System.ComponentModel": "4.0.0.0",
+	"Microsoft.AspNet.Diagnostics" : "0.1-alpha-*"
     },
     "commands": {
         "web": "Microsoft.AspNet.Hosting server.name=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001"

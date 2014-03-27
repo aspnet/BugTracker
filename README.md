@@ -4,12 +4,12 @@
 1. Run build.cmd to restore all the necessary packages and generate project files
 2. Open a command prompt and cd \src\BugTracker\
 3. [Helios]:
-	a. Execute CopyAspNetLoader.cmd to copy the AspNet.Loader.dll to the bin directory
-	b. Helios.cmd to launch the app on IISExpress.
+	4. Execute CopyAspNetLoader.cmd to copy the AspNet.Loader.dll to the bin directory
+	5. Helios.cmd to launch the app on IISExpress.
 4. [SelfHost]:
-	a. Run Selfhost.cmd (This runs k web) (Note: If your changes to C# files are not picked up in successive builds - try deleting the bin and obj folder)
+	5. Run Selfhost.cmd (This runs k web) (Note: If your changes to C# files are not picked up in successive builds - try deleting the bin and obj folder)
 5. [CustomHost]:
-	a. Run CustomHost.cmd (This hosts the app in a console application) (Note: If your changes to C# files are not picked up in successive builds - try deleting the bin and obj folder)
+	6. Run CustomHost.cmd (This hosts the app in a console application) (Note: If your changes to C# files are not picked up in successive builds - try deleting the bin and obj folder)
 
 ### Adding a new package:
 1. Edit the project.json to include the package you want to install

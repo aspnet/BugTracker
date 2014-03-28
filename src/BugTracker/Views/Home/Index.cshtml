@@ -17,7 +17,8 @@
                 viewModel.moveBug(item);
             };
 
-            //Bug: Takes multiple clicks if transport negotiation allowed.
+            //Bug: On Helios allowing client to negotiate transport creates some issues : https://github.com/aspnet/Helios/issues/14
+            //On selfhost it works fine. We will remove the hardcoded transport once we have the Helios bug fixed. 
             $.connection.hub.start({ transport: 'longPolling' }).done(function () {
                 console.log('hub connection open');
             });

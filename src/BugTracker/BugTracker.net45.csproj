@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F33B32EB-BE3A-4E1D-9D91-FDC4C9E46C93}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BugTracker</RootNamespace>
+    <AssemblyName>BugTracker</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseIntermediateOutputPath>obj/net45</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\net45</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NET45;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\net45</OutputPath>
+    <DefineConstants>TRACE;NET45;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib"/>
+    <Reference Include="System"/>
+    <Reference Include="System.Core"/>
+    <Reference Include="Microsoft.CSharp"/>
+    
+        <Reference Include="Microsoft.AspNet.Abstractions, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Abstractions.0.1-alpha-165\lib\net45\Microsoft.AspNet.Abstractions.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.Mvc, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Mvc.0.1-alpha-324\lib\net45\Microsoft.AspNet.Mvc.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Razor.0.1-alpha-146\lib\net45\Microsoft.AspNet.Razor.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.ConfigurationModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.ConfigurationModel.0.1-alpha-120\lib\net45\Microsoft.AspNet.ConfigurationModel.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.DependencyInjection, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.DependencyInjection.0.1-alpha-180\lib\net45\Microsoft.AspNet.DependencyInjection.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.RequestContainer, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.RequestContainer.0.1-alpha-150\lib\net45\Microsoft.AspNet.RequestContainer.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.Routing, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Routing.0.1-alpha-128\lib\net45\Microsoft.AspNet.Routing.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.Mvc.ModelBinding, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Mvc.ModelBinding.0.1-alpha-324\lib\net45\Microsoft.AspNet.Mvc.ModelBinding.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.Mvc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Mvc.Core.0.1-alpha-324\lib\net45\Microsoft.AspNet.Mvc.Core.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.Mvc.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Mvc.Razor.0.1-alpha-324\lib\net45\Microsoft.AspNet.Mvc.Razor.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.Mvc.Rendering, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Mvc.Rendering.0.1-alpha-324\lib\net45\Microsoft.AspNet.Mvc.Rendering.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.StaticFiles, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.StaticFiles.0.1-alpha-099\lib\net45\Microsoft.AspNet.StaticFiles.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.SignalR.Server, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.SignalR.Server.0.1-alpha-073\lib\net45\Microsoft.AspNet.SignalR.Server.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.Hosting, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Hosting.0.1-alpha-150\lib\net45\Microsoft.AspNet.Hosting.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.Server.WebListener, Version=0.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Server.WebListener.0.1-alpha-052\lib\net45\Microsoft.AspNet.Server.WebListener.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+        <Reference Include="Microsoft.AspNet.Diagnostics, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <SpecificVersion>False</SpecificVersion>
+        <HintPath>..\..\packages\Microsoft.AspNet.Diagnostics.0.1-alpha-035\lib\net45\Microsoft.AspNet.Diagnostics.dll</HintPath>
+        <Private>true</Private>
+        </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\BugTracker\Program.cs" />
+<Compile Include="..\..\src\BugTracker\Startup.cs" />
+<Compile Include="..\..\src\BugTracker\api\BugsController.cs" />
+<Compile Include="..\..\src\BugTracker\Controllers\HomeController.cs" />
+<Compile Include="..\..\src\BugTracker\Hubs\BugHub.cs" />
+<Compile Include="..\..\src\BugTracker\Model\Bug.cs" />
+<Compile Include="..\..\src\BugTracker\Model\BugsRepository.cs" />
+<Compile Include="..\..\src\BugTracker\Model\IBugsRepository.cs" />
+
+<None Include="..\..\packages\KoreBuild\Build\Resources.tt">
+  <Link>Properties\Resources.tt</Link>
+  <Generator>TextTemplatingFileGenerator</Generator>
+  <CustomToolNamespace>BugTracker</CustomToolNamespace>
+</None>
+<Content Include="Views\Home\Index.cshtml" />
+<Content Include="Scripts\jquery-2.0.3.intellisense.js" />
+<Content Include="Scripts\jquery-2.0.3.js" />
+<Content Include="Scripts\jquery-2.0.3.min.js" />
+<Content Include="Scripts\jquery.signalR-2.0.1.js" />
+<Content Include="Scripts\jquery.signalR-2.0.1.min.js" />
+<Content Include="Scripts\knockout-3.0.0.debug.js" />
+<Content Include="Scripts\knockout-3.0.0.js" />
+
+    <Content Include="project.json"/>
+  </ItemGroup>
+  <ItemGroup>
+  
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

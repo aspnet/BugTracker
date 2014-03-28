@@ -1,3 +1,5 @@
+// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.txt in the project root for license information.
+
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -18,7 +20,8 @@ namespace BugTracker
     {
         public void Configuration(IBuilder app)
         {
-            app.UseErrorPage(new ErrorPageOptions() { ShowCookies = true, ShowEnvironment = true, ShowExceptionDetails = true, ShowHeaders = true, ShowQuery = true, ShowSourceCode = true});
+            //ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production. 
+            app.UseErrorPage(ErrorPageOptions.ShowAll);
 
             var serviceProvider = new ServiceCollection()
                      .Add(MvcServices.GetDefaultServices())

@@ -1,8 +1,6 @@
-﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.txt in the project root for license information.
+﻿using Microsoft.AspNet.Mvc;
 
-using Microsoft.AspNet.Mvc;
-
-namespace BugTracker.Web.Controllers
+namespace BugTracker.Controllers
 {
     public class HomeController: Controller
     {

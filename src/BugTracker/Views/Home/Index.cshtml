@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Bug tracker application</title>
-    <script src="/Scripts/jquery-2.0.3.min.js"></script>
-    <script src="/Scripts/knockout-3.0.0.js"></script>
-    <script src="/Scripts/jquery.signalR-2.0.1.min.js"></script>
-    <script src="signalr/hubs" type="text/javascript"></script>
+    <script src="~/Scripts/jquery-2.0.3.min.js"></script>
+    <script src="~/Scripts/knockout-3.0.0.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.0.1.min.js"></script>
+    <script src="~/signalr/hubs" type="text/javascript"></script>
     <script>
         $(function () {
             var viewModel;
@@ -23,7 +23,7 @@
                 console.log('hub connection open');
             });
 
-            $.getJSON('/api/bugs', function (data) {
+            $.getJSON('api/bugs', function (data) {
                 var model = data;
 
                 viewModel = {
@@ -31,7 +31,7 @@
                     working: ko.observableArray(model.filter(function (element) { return element.state === 'working'; })),
                     done: ko.observableArray(model.filter(function (element) { return element.state === 'done'; })),
                     changeState: function (bug, newState) {
-                        $.post('/api/bugs/' + newState, { 'id': bug.id });
+                        $.post('api/bugs/' + newState, { 'id': bug.id });
                     },
                     moveBug: function (bug) {
                         //remove the item from one of the existing lists

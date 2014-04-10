@@ -52,6 +52,8 @@ namespace BugTracker
                 "api/{controller}",
                 new { controller = "Home" });
 
+            routes.MapRoute("api/{controller}/{id?}");
+            
             //Configure MVC
             app.UseRouter(routes);
         }

@@ -17,8 +17,16 @@
                 viewModel.moveBug(item);
             };
 
+            bugsHub.client.added = function (item) {
+                viewModel.addMyBug(item);
+            };
+
+            bugsHub.client.deleted = function (item) {
+                viewModel.deleteMyBug(item);
+            };
+
             //Bug: On Helios allowing client to negotiate transport creates some issues : https://github.com/aspnet/Helios/issues/14
-            //On selfhost it works fine. We will remove the hardcoded transport once we have the Helios bug fixed. 
+            //On selfhost it works fine. We will remove the hardcoded transport once we have the Helios bug fixed.
             $.connection.hub.start({ transport: 'longPolling' }).done(function () {
                 console.log('hub connection open');
             });
@@ -30,8 +38,39 @@
                     backlog: ko.observableArray(model.filter(function (element) { return element.state === 'backlog'; })),
                     working: ko.observableArray(model.filter(function (element) { return element.state === 'working'; })),
                     done: ko.observableArray(model.filter(function (element) { return element.state === 'done'; })),
-                    changeState: function (bug, newState) {
+                    bugId: ko.observable(),
+                    bugTitle: ko.observable(),
+                    bugDescription: ko.observable(),
+                    bugStates: ko.observableArray([
+                        { Value: 0, Text: "backlog" },
+                        { Value: 1, Text: "working" },
+                        { Value: 2, Text: "done" }
+                    ]),
+                    bugStateId: ko.observable(),
+                    @*changeState: function (bug, newState) {
                         $.post('@Url.Content("~/api/bugs/")' + newState, { 'id': bug.id });
+                    },*@
+                    changeState: function (bug, newState) {
+                        $.ajax({
+                            url: '/api/bugs/' + bug.id,
+                            type: 'PUT',
+                            data: "&state=" + newState
+                        });
+                    },
+                    addBug: function () {
+                        $.ajax({
+                            url: '/api/bugs/',
+                            type: 'POST',
+                            data: "id=" + this.bugId() + "&title=" + this.bugTitle() + "&description=" + this.bugDescription() + "&state=" + this.bugStates()[this.bugStateId()].Text,
+                        });
+                    },
+                    deleteBug: function (bug) {
+                        if (confirm('Are you sure to Delete "' + bug.title + '" ?')) {
+                            $.ajax({
+                                url: '/api/bugs/' + bug.id,
+                                type: 'DELETE'
+                            });
+                        }
                     },
                     moveBug: function (bug) {
                         //remove the item from one of the existing lists
@@ -46,6 +85,22 @@
 
                         // add bug to correct list
                         this[bug.state].push(bug);
+                    },
+                    addMyBug: function (bug) {
+                        // add bug to correct list
+                        this[bug.state].push(bug);
+                    },
+
+                    deleteMyBug: function (bug) {
+                        // remove bug to from list
+                        [this.backlog, this.working, this.done].forEach(function (list) {
+                            list().forEach(function (item) {
+                                if (item.id == bug.id) {
+                                    console.log('removing item ' + item.id);
+                                    list.remove(item);
+                                }
+                            });
+                        });
                     }
                 };
                 ko.applyBindings(viewModel);
@@ -62,6 +117,9 @@
         <ul class="bugs" id="backlog" data-bind="foreach:backlog">
             <li>
                 [<span data-bind="text: id"></span>] <span data-bind="text: title"></span>: <span data-bind="text: description"></span>
+                <span data-bind="click: $root.deleteBug.bind($root, $data)">
+                    &nbsp;&nbsp; <img src="images/delete.png" alt="close" height="10" width="10">
+                </span>
                 <ul>
                     <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'working')">Move to working</a></li>
                     <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'done')">Move to done</a></li>
@@ -75,6 +133,10 @@
         <ul class="bugs" id="working" data-bind="foreach:working">
             <li>
                 [<span data-bind="text: id"></span>] <span data-bind="text: title"></span>: <span data-bind="text: description"></span>
+                &nbsp;&nbsp;
+                <span data-bind="click: $root.deleteBug.bind($root, $data)">
+                    <img src="images/delete.png" alt="close" height="10" width="10">
+                </span>
                 <ul>
                     <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'backlog')">Move to backlog</a></li>
                     <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'done')">Move to done</a></li>
@@ -88,12 +150,30 @@
         <ul class="bugs" id="done" data-bind="foreach:done">
             <li>
                 [<span data-bind="text: id"></span>] <span data-bind="text: title"></span>: <span data-bind="text: description"></span>
+                <span data-bind="click: $root.deleteBug.bind($root, $data)">
+                    &nbsp;&nbsp; <img src="images/delete.png" alt="close" height="10" width="10">
+                </span>
                 <ul>
                     <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'backlog')">Move to backlog</a></li>
                     <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'working')">Move to working</a></li>
                 </ul>
             </li>
         </ul>
+    </section>
+    <section>
+        <h3> Add new bug</h3>
+        <form name="input" data-bind="submit:$root.addBug">
+            <label>Bug Id </label>
+            <input type="text" name="Id" class="input-xlarge" data-bind="value:bugId"> <br />
+            <label>Bug Title </label>
+            <input type="text" name="Title" class="input-xlarge" data-bind="value:bugTitle"> <br />
+            <label>Bug Description </label>
+            <input type="text" name="Description" class="input-xlarge" data-bind="value:bugDescription"> <br />
+            <label>Bug State </label>
+            <select data-bind="options: bugStates, optionsValue: 'Value', optionsText: 'Text', value: bugStateId"></select>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
     </section>
 </body>
 </html>

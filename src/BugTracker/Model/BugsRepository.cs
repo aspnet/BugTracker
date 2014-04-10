@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BugTracker.Model
 {
@@ -22,6 +23,31 @@ namespace BugTracker.Model
         public IEnumerable<Bug> GetBugs()
         {
             return _repo;
+        }
+
+        public Bug AddBug(Bug bug)
+        {
+            _repo.Add(new Bug { id = bug.id, title = bug.title, description = bug.description, state = bug.state });
+            return bug;
+        }
+
+        public Bug UpdateBug(int id, string state)
+        {
+            Bug myBug = _repo.First(b => b.id == id);
+            _repo.Remove(myBug);
+
+            myBug.state = state;
+            _repo.Add(myBug);
+
+            return myBug;
+        }
+
+        public Bug DeleteBug(int id)
+        {
+            Bug myBug = _repo.First(b => b.id == id);
+            _repo.Remove(myBug);
+
+            return myBug;
         }
     }
 }

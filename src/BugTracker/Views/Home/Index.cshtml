@@ -62,7 +62,11 @@
                             url: '/api/bugs/',
                             type: 'POST',
                             data: "id=" + this.bugId() + "&title=" + this.bugTitle() + "&description=" + this.bugDescription() + "&state=" + this.bugStates()[this.bugStateId()].Text,
+                            success: function (data) {
+                                $('#addbug')[0].reset();
+                            }
                         });
+
                     },
                     deleteBug: function (bug) {
                         if (confirm('Are you sure to Delete "' + bug.title + '" ?')) {
@@ -115,14 +119,14 @@
     <section>
         <h2>Backlog</h2>
         <ul class="bugs" id="backlog" data-bind="foreach:backlog">
-            <li>
+            <li id="backlogItems">
                 [<span data-bind="text: id"></span>] <span data-bind="text: title"></span>: <span data-bind="text: description"></span>
-                <span data-bind="click: $root.deleteBug.bind($root, $data)">
+                <span id="deleteBug" data-bind="click: $root.deleteBug.bind($root, $data)">
                     &nbsp;&nbsp; <img src="images/delete.png" alt="close" height="10" width="10">
                 </span>
-                <ul>
-                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'working')">Move to working</a></li>
-                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'done')">Move to done</a></li>
+                <ul id="bugStates">
+                    <li><a href="#" id="moveToWorking" data-bind="click: $root.changeState.bind($root, $data, 'working')">Move to working</a></li>
+                    <li><a href="#" id="moveToDone" data-bind="click: $root.changeState.bind($root, $data, 'done')">Move to done</a></li>
                 </ul>
             </li>
         </ul>
@@ -131,15 +135,15 @@
     <section>
         <h2>Working</h2>
         <ul class="bugs" id="working" data-bind="foreach:working">
-            <li>
+            <li id="workingItems">
                 [<span data-bind="text: id"></span>] <span data-bind="text: title"></span>: <span data-bind="text: description"></span>
                 &nbsp;&nbsp;
-                <span data-bind="click: $root.deleteBug.bind($root, $data)">
+                <span id="deleteBug" data-bind="click: $root.deleteBug.bind($root, $data)">
                     <img src="images/delete.png" alt="close" height="10" width="10">
                 </span>
-                <ul>
-                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'backlog')">Move to backlog</a></li>
-                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'done')">Move to done</a></li>
+                <ul id="bugStates">
+                    <li><a href="#" id="moveToBacklog" data-bind="click: $root.changeState.bind($root, $data, 'backlog')">Move to backlog</a></li>
+                    <li><a href="#" id="moveToDone" data-bind="click: $root.changeState.bind($root, $data, 'done')">Move to done</a></li>
                 </ul>
             </li>
         </ul>
@@ -148,31 +152,31 @@
     <section>
         <h2>Done</h2>
         <ul class="bugs" id="done" data-bind="foreach:done">
-            <li>
+            <li id="doneItems">
                 [<span data-bind="text: id"></span>] <span data-bind="text: title"></span>: <span data-bind="text: description"></span>
-                <span data-bind="click: $root.deleteBug.bind($root, $data)">
+                <span id="deleteBug" data-bind="click: $root.deleteBug.bind($root, $data)">
                     &nbsp;&nbsp; <img src="images/delete.png" alt="close" height="10" width="10">
                 </span>
-                <ul>
-                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'backlog')">Move to backlog</a></li>
-                    <li><a href="#" data-bind="click: $root.changeState.bind($root, $data, 'working')">Move to working</a></li>
+                <ul id="bugStates">
+                    <li><a href="#" id="moveToBacklog" data-bind="click: $root.changeState.bind($root, $data, 'backlog')">Move to backlog</a></li>
+                    <li><a href="#" id="moveToWorking" data-bind="click: $root.changeState.bind($root, $data, 'working')">Move to working</a></li>
                 </ul>
             </li>
         </ul>
     </section>
     <section>
         <h3> Add new bug</h3>
-        <form name="input" data-bind="submit:$root.addBug">
+        <form name="input" id="addbug" data-bind="submit:$root.addBug">
             <label>Bug Id </label>
-            <input type="text" name="Id" class="input-xlarge" data-bind="value:bugId"> <br />
+            <input type="text" name="Id" id="bugId" class="input-xlarge" data-bind="value:bugId"> <br />
             <label>Bug Title </label>
-            <input type="text" name="Title" class="input-xlarge" data-bind="value:bugTitle"> <br />
+            <input type="text" name="Title" id="bugTitle" class="input-xlarge" data-bind="value:bugTitle"> <br />
             <label>Bug Description </label>
-            <input type="text" name="Description" class="input-xlarge" data-bind="value:bugDescription"> <br />
+            <input type="text" name="Description" id="bugDescription" class="input-xlarge" data-bind="value:bugDescription"> <br />
             <label>Bug State </label>
             <select data-bind="options: bugStates, optionsValue: 'Value', optionsText: 'Text', value: bugStateId"></select>
 
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" id="submitBtn" class="btn btn-default">Submit</button>
         </form>
     </section>
 </body>

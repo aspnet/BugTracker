@@ -17,15 +17,14 @@ namespace BugTracker
             //ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production. 
             app.UseErrorPage(ErrorPageOptions.ShowAll);
 
-            var serviceProvider = new ServiceCollection()
-                     .AddMvc()
-                     .AddSignalR()
-                     .BuildServiceProvider(app.ServiceProvider);
-
-            app.UseContainer(serviceProvider);
+            app.UseServices(services =>
+            {
+                services.AddMvc();
+                services.AddSignalR();
+            });
 
             //Configure SignalR
-            app.MapSignalR();
+            app.UseSignalR();
 
             //Configure static files
             app.UseFileServer();

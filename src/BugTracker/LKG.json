@@ -1,34 +1,37 @@
 {
   "version": "0.1-alpha-*",
   "dependencies": {
-    "Helios": "0.1-alpha-210",
-    "Microsoft.AspNet.Abstractions": "0.1-alpha-228",
-    "Microsoft.AspNet.Mvc": "0.1-alpha-513",
-    "Microsoft.AspNet.Razor": "0.1-alpha-181",
-    "Microsoft.AspNet.ConfigurationModel": "0.1-alpha-167",
-    "Microsoft.AspNet.DependencyInjection": "0.1-alpha-237",
-    "Microsoft.AspNet.RequestContainer": "0.1-alpha-222",
-    "Microsoft.AspNet.Routing": "0.1-alpha-204",
-    "Microsoft.AspNet.Mvc.ModelBinding": "0.1-alpha-513",
-    "Microsoft.AspNet.Mvc.Core": "0.1-alpha-513",
-    "Microsoft.AspNet.Mvc.Razor": "0.1-alpha-513",
-    "Microsoft.AspNet.Mvc.Rendering": "0.1-alpha-513",
-    "Microsoft.AspNet.StaticFiles": "0.1-alpha-167",
-    "Microsoft.AspNet.SignalR.Server": "0.1-alpha-148",
-    "Microsoft.AspNet.Hosting": "0.1-alpha-222",
-    "Microsoft.AspNet.Server.WebListener": "0.1-alpha-147",
-    "System.Runtime": "4.0.20.0",
-    "System.Dynamic.Runtime": "4.0.0.0",
-    "System.Threading.Tasks": "4.0.10.0",
-    "System.ComponentModel": "4.0.0.0",
-    "Microsoft.AspNet.Diagnostics": "0.1-alpha-106"
+    "Helios": "0.1-alpha-326",
+    "Microsoft.AspNet.Abstractions": "0.1-alpha-291",
+    "Microsoft.AspNet.Mvc": "0.1-alpha-729",
+    "Microsoft.AspNet.Razor": "0.1-alpha-182",
+    "Microsoft.AspNet.ConfigurationModel": "0.1-alpha-183",
+    "Microsoft.AspNet.DependencyInjection": "0.1-alpha-274",
+    "Microsoft.AspNet.RequestContainer": "0.1-alpha-317",
+    "Microsoft.AspNet.Routing": "0.1-alpha-300",
+    "Microsoft.AspNet.Mvc.ModelBinding": "0.1-alpha-729",
+    "Microsoft.AspNet.Mvc.Core": "0.1-alpha-729",
+    "Microsoft.AspNet.Mvc.Razor": "0.1-alpha-729",
+    "Microsoft.AspNet.Mvc.Rendering": "0.1-alpha-519",
+    "Microsoft.AspNet.StaticFiles": "0.1-alpha-237",
+    "Microsoft.AspNet.SignalR.Server": "0.1-alpha-269",
+    "Microsoft.AspNet.Hosting": "0.1-alpha-317",
+    "Microsoft.AspNet.Server.WebListener": "0.1-alpha-262",
+    "Microsoft.AspNet.Diagnostics": "0.1-alpha-215"
   },
   "configurations": {
     "net45": {
-      "dependencies": null
+      "dependencies": {
+        "System.Runtime": ""
+      }
     },
     "k10": {
-      "dependencies": null
+      "dependencies": {
+        "System.Runtime": "4.0.20.0",
+        "System.Dynamic.Runtime": "4.0.0.0",
+        "System.Threading.Tasks": "4.0.10.0",
+        "System.ComponentModel": "4.0.0.0"
+      }
     }
   }
 }

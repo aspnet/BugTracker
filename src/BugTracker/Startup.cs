@@ -1,16 +1,12 @@
-using System;
-using System.Linq;
-using System.Collections.Generic;
+using Microsoft.AspNet;
 using Microsoft.AspNet.Abstractions;
 using Microsoft.AspNet.DependencyInjection;
 using Microsoft.AspNet.DependencyInjection.Fallback;
-using Microsoft.AspNet.RequestContainer;
-using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.Routing;
-using Microsoft.AspNet;
-using Microsoft.AspNet.StaticFiles;
-using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.Diagnostics;
+using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.RequestContainer;
+using Microsoft.AspNet.Routing;
+using Microsoft.AspNet.SignalR;
 
 namespace BugTracker
 {
@@ -21,23 +17,22 @@ namespace BugTracker
             //ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production. 
             app.UseErrorPage(ErrorPageOptions.ShowAll);
 
-            var serviceProvider = new ServiceCollection()
-                     .Add(MvcServices.GetDefaultServices())
-                     .Add(SignalRServices.GetServices())
-                     .BuildServiceProvider(app.ServiceProvider);
-
-            app.UseContainer(serviceProvider);
+            app.UseServices(services =>
+            {
+                services.AddMvc();
+                services.AddSignalR();
+            });
 
             //Configure SignalR
-            app.MapSignalR();
-
+            app.UseSignalR();
+			
             //Configure static files
             app.UseFileServer();
 
             //Configure WebFx
             var routes = new RouteCollection()
             {
-                DefaultHandler = new MvcApplication(serviceProvider),
+                DefaultHandler = new MvcRouteHandler(),
             };
 
             routes.MapRoute(

@@ -20,7 +20,7 @@
         "Microsoft.AspNet.Diagnostics": "0.1-alpha-*"
     },
     "commands": {
-        "web": "Microsoft.AspNet.Hosting server.name=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001"
+        "web": "Microsoft.AspNet.Hosting server.name=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5002"
     },
     "configurations": {
         "net45": {

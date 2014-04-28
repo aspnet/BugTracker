@@ -1,23 +1,23 @@
 {
   "version": "0.1-alpha-*",
   "dependencies": {
-    "Helios": "0.1-alpha-326",
-    "Microsoft.AspNet.Abstractions": "0.1-alpha-291",
-    "Microsoft.AspNet.Mvc": "0.1-alpha-729",
+    "Helios": "0.1-alpha-379",
+    "Microsoft.AspNet.Abstractions": "0.1-alpha-320",
+    "Microsoft.AspNet.Mvc": "0.1-alpha-807",
     "Microsoft.AspNet.Razor": "0.1-alpha-182",
-    "Microsoft.AspNet.ConfigurationModel": "0.1-alpha-183",
-    "Microsoft.AspNet.DependencyInjection": "0.1-alpha-274",
-    "Microsoft.AspNet.RequestContainer": "0.1-alpha-317",
-    "Microsoft.AspNet.Routing": "0.1-alpha-300",
-    "Microsoft.AspNet.Mvc.ModelBinding": "0.1-alpha-729",
-    "Microsoft.AspNet.Mvc.Core": "0.1-alpha-729",
-    "Microsoft.AspNet.Mvc.Razor": "0.1-alpha-729",
+    "Microsoft.AspNet.ConfigurationModel": "0.1-alpha-190",
+    "Microsoft.AspNet.DependencyInjection": "0.1-alpha-291",
+    "Microsoft.AspNet.RequestContainer": "0.1-alpha-361",
+    "Microsoft.AspNet.Routing": "0.1-alpha-350",
+    "Microsoft.AspNet.Mvc.ModelBinding": "0.1-alpha-807",
+    "Microsoft.AspNet.Mvc.Core": "0.1-alpha-807",
+    "Microsoft.AspNet.Mvc.Razor": "0.1-alpha-807",
     "Microsoft.AspNet.Mvc.Rendering": "0.1-alpha-519",
-    "Microsoft.AspNet.StaticFiles": "0.1-alpha-237",
-    "Microsoft.AspNet.SignalR.Server": "0.1-alpha-269",
-    "Microsoft.AspNet.Hosting": "0.1-alpha-317",
-    "Microsoft.AspNet.Server.WebListener": "0.1-alpha-262",
-    "Microsoft.AspNet.Diagnostics": "0.1-alpha-215"
+    "Microsoft.AspNet.StaticFiles": "0.1-alpha-273",
+    "Microsoft.AspNet.SignalR.Server": "0.1-alpha-328",
+    "Microsoft.AspNet.Hosting": "0.1-alpha-361",
+    "Microsoft.AspNet.Server.WebListener": "0.1-alpha-307",
+    "Microsoft.AspNet.Diagnostics": "0.1-alpha-272"
   },
   "configurations": {
     "net45": {

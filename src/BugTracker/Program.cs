@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.ConfigurationModel;
-using Microsoft.AspNet.ConfigurationModel.Sources;
 using Microsoft.AspNet.DependencyInjection;
 using Microsoft.AspNet.DependencyInjection.Fallback;
 using Microsoft.AspNet.Hosting;
@@ -8,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace BugTracker
 {
+    /// <summary>
+    /// This demonstrates how the application can be launched in a K console application. 
+    /// k run command in the application folder will invoke this.
+    /// </summary>
     public class Program
     {
         private readonly IServiceProvider _hostServiceProvider;
@@ -19,7 +22,7 @@ namespace BugTracker
 
         public Task<int> Main(string[] args)
         {
-            //Add command line to the configuration source to read command line parameters.
+            //Add command line configuration source to read command line parameters.
             var config = new Configuration();
             config.AddCommandLine(args);
             

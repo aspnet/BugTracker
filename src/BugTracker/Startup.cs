@@ -1,10 +1,7 @@
 using Microsoft.AspNet;
 using Microsoft.AspNet.Abstractions;
-using Microsoft.AspNet.DependencyInjection;
-using Microsoft.AspNet.DependencyInjection.Fallback;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.RequestContainer;
 using Microsoft.AspNet.Routing;
 using Microsoft.AspNet.SignalR;
 
@@ -14,19 +11,24 @@ namespace BugTracker
     {
         public void Configuration(IBuilder app)
         {
-            //ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production. 
+            /* Error page middleware displays a nice formatted HTML page for any unhandled exceptions in the request pipeline.
+            * Note: ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production.
+            */
             app.UseErrorPage(ErrorPageOptions.ShowAll);
 
             app.UseServices(services =>
             {
+                //Add all MVC related services to IoC.
                 services.AddMvc();
+
+                //Add all SignalR related services to IoC.
                 services.AddSignalR();
             });
 
             //Configure SignalR
             app.UseSignalR();
 
-            //Configure static files
+            //Serves static files in the application.
             app.UseFileServer();
 
             //Configure WebFx
@@ -36,14 +38,17 @@ namespace BugTracker
             };
 
             routes.MapRoute(
+                null,
                 "{controller}/{action}",
                 new { controller = "Home", action = "Index" });
 
             routes.MapRoute(
+                null,
                 "api/{controller}/{action}",
                 new { controller = "Home", action = "Index" });
 
             routes.MapRoute(
+                null,
                 "api/{controller}",
                 new { controller = "Home" });
 

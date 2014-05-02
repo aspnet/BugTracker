@@ -21,7 +21,8 @@
                 console.log('hub connection open');
             });
 
-            $.getJSON('@Url.Content("~/api/bugs")', function (data) {
+            var bugsBaseAddress = encodeURIComponent('@Url.Content("~/api/bugs/")');
+            $.getJSON(bugsBaseAddress, function (data) {
                 var model = data;
 
                 viewModel = {
@@ -29,7 +30,7 @@
                     working: ko.observableArray(model.filter(function (element) { return element.state === 'working'; })),
                     done: ko.observableArray(model.filter(function (element) { return element.state === 'done'; })),
                     changeState: function (bug, newState) {
-                        $.post('@Url.Content("~/api/bugs/")' + newState, { 'id': bug.id });
+                        $.post(bugsBaseAddress + newState, { 'id': bug.id });
                     },
                     moveBug: function (bug) {
                         //remove the item from one of the existing lists

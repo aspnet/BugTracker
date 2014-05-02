@@ -2,7 +2,7 @@
 
 ###Getting Started
 
-The first thing we need to do is setup the tools required to build and run an application.
+The first thing we need to do is set up the tools required to build and run an application.
 
 * Clone the repository
 * On the command line execute ```kvm setup``` 

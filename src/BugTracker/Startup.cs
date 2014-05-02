@@ -32,28 +32,23 @@ namespace BugTracker
             app.UseFileServer();
 
             //Configure WebFx
-            var routes = new RouteCollection()
+            app.UseMvc(routes =>
             {
-                DefaultHandler = new MvcRouteHandler(),
-            };
+                routes.MapRoute(
+                    null,
+                    "{controller}/{action}",
+                    new { controller = "Home", action = "Index" });
 
-            routes.MapRoute(
-                null,
-                "{controller}/{action}",
-                new { controller = "Home", action = "Index" });
+                routes.MapRoute(
+                    null,
+                    "api/{controller}/{action}",
+                    new { controller = "Home", action = "Index" });
 
-            routes.MapRoute(
-                null,
-                "api/{controller}/{action}",
-                new { controller = "Home", action = "Index" });
-
-            routes.MapRoute(
-                null,
-                "api/{controller}",
-                new { controller = "Home" });
-
-            //Configure MVC
-            app.UseRouter(routes);
+                routes.MapRoute(
+                    null,
+                    "api/{controller}",
+                    new { controller = "Home" });
+            });
         }
     }
 }

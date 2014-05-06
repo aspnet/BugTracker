@@ -1,4 +1,5 @@
 using Microsoft.AspNet;
+using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Abstractions;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Mvc;

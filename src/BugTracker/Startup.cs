@@ -1,6 +1,7 @@
 using Microsoft.AspNet;
 using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Abstractions;
+using Microsoft.AspNet.Http;
+using Microsoft.Framework.DependencyInjection;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Routing;

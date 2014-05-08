@@ -17,7 +17,6 @@
         "Microsoft.AspNet.Mvc.ModelBinding": "0.1-alpha-*",
         "Microsoft.AspNet.Mvc.Core": "0.1-alpha-*",
         "Microsoft.AspNet.Mvc.Razor": "0.1-alpha-*",
-        "Microsoft.AspNet.Mvc.Rendering": "0.1-alpha-*",
         "Microsoft.AspNet.StaticFiles": "0.1-alpha-*",
         "Microsoft.AspNet.SignalR.Server": "0.1-alpha-*",
         "Microsoft.AspNet.Hosting": "0.1-alpha-*",

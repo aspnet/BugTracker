@@ -7,11 +7,9 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Routing;
 using Microsoft.AspNet.SignalR;
 
-namespace BugTracker
-{
     public class Startup
     {
-        public void Configuration(IBuilder app)
+        public void Configure(IBuilder app)
         {
             /* Error page middleware displays a nice formatted HTML page for any unhandled exceptions in the request pipeline.
             * Note: ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production.
@@ -53,4 +51,3 @@ namespace BugTracker
             });
         }
     }
-}

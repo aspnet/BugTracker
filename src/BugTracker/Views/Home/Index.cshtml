@@ -21,7 +21,7 @@
                 console.log('hub connection open');
             });
 
-            var bugsBaseAddress = encodeURIComponent('@Url.Content("~/api/bugs/")');
+            var bugsBaseAddress = encodeURIComponent('/api/bugs/');
             $.getJSON(bugsBaseAddress, function (data) {
                 var model = data;
 

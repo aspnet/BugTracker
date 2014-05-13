@@ -1,4 +1,8 @@
-## BugTracker application
+BugTracker application
+=========
+
+This project is part of ASP.NET vNext. You can find samples, documentation and getting started instructions for ASP.NET vNext at the [Home](https://github.com/aspnet/home) repo.
+
 
 ### Run the application:
 1. Run build.cmd to restore all the necessary packages and generate project files
@@ -21,3 +25,4 @@
 ### Note:
 1. By default this script starts the application at http://localhost:5001/. Modify Run.cmd if you would like to change the url
 2. Use Visual studio only for editing & intellisense. Don't try to build or run the app from Visual studio.
+

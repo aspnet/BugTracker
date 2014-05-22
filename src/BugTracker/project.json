@@ -1,35 +1,45 @@
 {
-    "version": "0.1-alpha-*",
-    "dependencies": {
-        "Helios": "0.1-alpha-*",
-        "Microsoft.AspNet.Abstractions": "0.1-alpha-*",
-        "Microsoft.AspNet.Mvc": "0.1-alpha-*",
-        "Microsoft.AspNet.Razor": "0.1-alpha-*",
-        "Microsoft.AspNet.ConfigurationModel": "0.1-alpha-*",
-        "Microsoft.AspNet.DependencyInjection": "0.1-alpha-*",
-        "Microsoft.AspNet.RequestContainer": "0.1-alpha-*",
-        "Microsoft.AspNet.Routing": "0.1-alpha-*",
-        "Microsoft.AspNet.Mvc.ModelBinding": "0.1-alpha-*",
-        "Microsoft.AspNet.Mvc.Core": "0.1-alpha-*",
-        "Microsoft.AspNet.Mvc.Razor": "0.1-alpha-*",
-        "Microsoft.AspNet.Mvc.Rendering": "0.1-alpha-*",
-        "Microsoft.AspNet.StaticFiles": "0.1-alpha-*",
-        "Microsoft.AspNet.SignalR.Server": "0.1-alpha-*",
-        "Microsoft.AspNet.Hosting": "0.1-alpha-*",
-        "Microsoft.AspNet.Server.WebListener": "0.1-alpha-*",
-        "System.Runtime": "4.0.20.0",
+  "name": "BugTracker",
+  "authors": [
+    "Microsoft"
+  ],
+  "description": "BugTracker application on K",
+  "version": "0.1-alpha-*",
+  "dependencies": {
+    "Helios": "0.1-alpha-build-0538",
+    "Microsoft.AspNet.Diagnostics": "0.1-alpha-build-0623",
+    "Microsoft.AspNet.Hosting": "0.1-alpha-build-0519",
+    "Microsoft.AspNet.Http": "0.1-alpha-build-0413",
+    "Microsoft.AspNet.Mvc": "0.1-alpha-build-1140",
+    "Microsoft.AspNet.Mvc.Core": "0.1-alpha-build-1140",
+    "Microsoft.AspNet.Mvc.ModelBinding": "0.1-alpha-build-1140",
+    "Microsoft.AspNet.Mvc.Razor": "0.1-alpha-build-1140",
+    "Microsoft.AspNet.Razor": "0.1-alpha-build-0193",
+    "Microsoft.AspNet.RequestContainer": "0.1-alpha-build-0519",
+    "Microsoft.AspNet.Routing": "0.1-alpha-build-0525",
+    "Microsoft.AspNet.Server.WebListener": "0.1-alpha-build-0469",
+    "Microsoft.AspNet.SignalR.Server": "0.1-alpha-build-0546",
+    "Microsoft.AspNet.StaticFiles": "0.1-alpha-build-0402",
+    "Microsoft.Framework.ConfigurationModel": "0.1-alpha-build-0223",
+    "Microsoft.Framework.DependencyInjection": "0.1-alpha-build-0362"
+  },
+  "commands": {
+    "web": "Microsoft.AspNet.Hosting server=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5002",
+    "run": "run server.urls=http://localhost:5003"
+  },
+  "configurations": {
+    "net45": {
+      "dependencies": {
+        "System.Runtime": ""
+      }
+    },
+    "k10": {
+      "dependencies": {
+        "System.ComponentModel": "4.0.0.0",
         "System.Dynamic.Runtime": "4.0.0.0",
-        "System.Threading.Tasks": "4.0.0.0",
-        "System.ComponentModel": "4.0.0.0"
-    },
-    "commands": {
-        "web": "Microsoft.AspNet.Hosting server.name=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001"
-    },
-    "configurations": {
-        "net45": {},
-        "k10": {
-            "System.Collections": "4.0.0.0",
-            "System.Linq": "4.0.0.0"
-        }
+        "System.Runtime": "4.0.20.0",
+        "System.Threading.Tasks": "4.0.10.0"
+      }
     }
+  }
 }

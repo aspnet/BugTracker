@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Mvc;
 
-namespace BugTracker.Web.Controllers
+namespace BugTracker.Controllers
 {
     public class HomeController: Controller
     {

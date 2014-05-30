@@ -8,13 +8,8 @@ This project is part of ASP.NET vNext. You can find samples, documentation and g
 
 The first thing we need to do is setup the tools required to build and run an application.
 
-* If you already have ```kvm``` installed on the machine ignore the steps below.
-* Clone [Home] (https://github.com/aspnet/Home) repository
-* On the command line, cd to Home repository and execute ```kvm setup``` 
-* This command will download the latest version of the SDK and put it on your path so that you can run the rest of the commands in the readme. If you want to know more about what this is doing then you can read the [KVM page](https://github.com/aspnet/Home/wiki/version-manager) of the wiki.
-* On the command line execute ```kvm install 0.1-alpha-build-0421```
-* This command will install Desktop flavor(x86) of KRE build 0421 in your user profile
-* Clone BugTracker repository, if you have not already
+* To setup `kvm` on your machine find getting started instructions at the [Home](https://github.com/aspnet/home) repo.
+* Clone MusicStore repository, if you have not already.
 
 ### Run the application:
 1. Open a command prompt and cd ```\src\<AppFolder>\```
@@ -29,8 +24,8 @@ The first thing we need to do is setup the tools required to build and run an ap
 
 ### Switching between Desktop CLR and CoreCLR:
 By default the app runs on desktop CLR. To switch to run the app on CoreCLR follow the steps below
-* On the command line, execute ```kvm install 0.1-alpha-build-0421 -svrc50```
-* This command will install core clr flavor of KRE build 0421 and set runtime to core clr 0421 build.
+* On the command line, execute ```kvm install [BuildNumber] -svrc50```
+* This command will install core clr flavor of this KRE build.
 * If you want to run on IIS/IISExpress against core clr, open k.ini and update KRE_FLAVOR to CORECLR and follow steps for running the application from 'Run the application' section
 * If you want to run on SelfHost against core clr, follow steps for running the application from 'Run the application' section
 
@@ -38,10 +33,5 @@ By default the app runs on desktop CLR. To switch to run the app on CoreCLR foll
 1. Edit the project.json to include the package you want to install.
 2. Do a ```kpm restore``` - This will restore the package in the project.
 
-### Work against the latest build:
-1. Run ```Clean.cmd``` - This will clear all the packages and any temporary files generated
-2. Continue the topic "Run the application"
-
 ### Note:
-1. Application is started on different ports on different hosts. To change the port or URL modify ```Helios.cmd``` or project.json commands section in case of self-host and customhost. 
-
+1. Application is started on different ports on different hosts. To change the port or URL modify ```Helios.cmd``` or project.json commands section in case of self-host and customhost.

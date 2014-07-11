@@ -1,45 +1,28 @@
 {
-  "name": "BugTracker",
   "authors": [
     "Microsoft"
   ],
   "description": "BugTracker application on K",
-  "version": "0.1-alpha-*",
+  "version": "1.0.0-alpha2",
   "dependencies": {
-    "Helios": "0.1-alpha-build-0585",
-    "Microsoft.AspNet.Diagnostics": "0.1-alpha-build-0682",
-    "Microsoft.AspNet.Hosting": "0.1-alpha-build-0572",
-    "Microsoft.AspNet.Http": "0.1-alpha-build-0444",
-    "Microsoft.AspNet.Mvc": "0.1-alpha-build-1268",
-    "Microsoft.AspNet.Mvc.Core": "0.1-alpha-build-1268",
-    "Microsoft.AspNet.Mvc.ModelBinding": "0.1-alpha-build-1268",
-    "Microsoft.AspNet.Mvc.Razor": "0.1-alpha-build-1268",
-    "Microsoft.AspNet.Razor": "0.1-alpha-build-0197",
-    "Microsoft.AspNet.RequestContainer": "0.1-alpha-build-0572",
-    "Microsoft.AspNet.Routing": "0.1-alpha-build-0577",
-    "Microsoft.AspNet.Server.WebListener": "0.1-alpha-build-0520",
-    "Microsoft.AspNet.SignalR.Server": "0.1-alpha-build-0610",
-    "Microsoft.AspNet.StaticFiles": "0.1-alpha-build-0443",
-    "Microsoft.Framework.ConfigurationModel": "0.1-alpha-build-0233",
-    "Microsoft.Framework.DependencyInjection": "0.1-alpha-build-0389"
+        "Microsoft.AspNet.Server.IIS": "1.0.0-alpha2",
+        "Microsoft.AspNet.Mvc": "6.0.0-alpha2",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-alpha2",
+        "Microsoft.AspNet.Diagnostics": "1.0.0-alpha2",
+        "Microsoft.AspNet.Security.Cookies": "1.0.0-alpha2",
+        "Microsoft.AspNet.StaticFiles": "1.0.0-alpha2",
+        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-alpha2",
+        "Microsoft.Framework.OptionsModel": "1.0.0-alpha2",
+	"Microsoft.AspNet.SignalR.Server": "3.0.0-alpha2"
   },
   "commands": {
-    "web": "Microsoft.AspNet.Hosting server=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5002",
+    "web": "Microsoft.AspNet.Hosting server=Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5002",
     "run": "run server.urls=http://localhost:5003"
   },
   "configurations": {
     "net45": {
-      "dependencies": {
-        "System.Runtime": ""
-      }
     },
     "k10": {
-      "dependencies": {
-        "System.ComponentModel": "4.0.0.0",
-        "System.Dynamic.Runtime": "4.0.0.0",
-        "System.Runtime": "4.0.20.0",
-        "System.Threading.Tasks": "4.0.10.0"
       }
-    }
-  }
+   }
 }

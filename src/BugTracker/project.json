@@ -14,7 +14,7 @@
         "Microsoft.AspNet.SignalR.Server": "3.0.0-*"
     },
     "commands": {
-        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5002",
+        "WebListener": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5002",
         "Kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004",
         "run": "run server.urls=http://localhost:5003"
     },

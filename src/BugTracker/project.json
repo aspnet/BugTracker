@@ -5,13 +5,13 @@
     "description": "BugTracker application on K",
     "version": "1.0.0-*",
     "dependencies": {
-        "Kestrel": "1.0.0-*",
-        "Microsoft.AspNet.Server.IIS": "1.0.0-*",
-        "Microsoft.AspNet.Mvc": "6.0.0-*",
-        "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
-        "Microsoft.AspNet.Diagnostics": "1.0.0-*",
-        "Microsoft.AspNet.StaticFiles": "1.0.0-*",
-        "Microsoft.AspNet.SignalR.Server": "3.0.0-*"
+        "Kestrel": "1.0.0-alpha3-10173",
+        "Microsoft.AspNet.Server.IIS": "1.0.0-alpha3-10200",
+        "Microsoft.AspNet.Mvc": "6.0.0-alpha3-10622",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-alpha3-10371",
+        "Microsoft.AspNet.Diagnostics": "1.0.0-alpha3-10202",
+        "Microsoft.AspNet.StaticFiles": "1.0.0-alpha3-10191",
+        "Microsoft.AspNet.SignalR.Server": "3.0.0-alpha3-10384"
     },
     "commands": {
         "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5002",

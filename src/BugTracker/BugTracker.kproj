@@ -19,7 +19,6 @@
   <ItemGroup>
     <Content Include="CopyAspNetLoader.cmd" />
     <Content Include="Helios.cmd" />
-    <Content Include="LKG.json" />
     <Content Include="Project.json" />
     <Content Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />

@@ -28,6 +28,7 @@ namespace BugTracker
             
             var serviceCollection = new ServiceCollection();
             serviceCollection.Add(HostingServices.GetDefaultServices(config));
+            serviceCollection.AddInstance<IHostingEnvironment>(new HostingEnvironment() { WebRoot = "wwwroot" });
             var services = serviceCollection.BuildServiceProvider(_hostServiceProvider);
 
             var context = new HostingContext()

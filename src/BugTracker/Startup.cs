@@ -5,7 +5,7 @@ using Microsoft.AspNet.Routing;
 
 public class Startup
 {
-    public void Configure(IBuilder app)
+    public void Configure(IApplicationBuilder app)
     {
         /* Error page middleware displays a nice formatted HTML page for any unhandled exceptions in the request pipeline.
         * Note: ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production.

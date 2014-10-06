@@ -4,6 +4,7 @@
     ],
     "description": "BugTracker application on K",
     "version": "1.0.0-*",
+    "webroot": "wwwroot",
     "dependencies": {
         "Kestrel": "1.0.0-*",
         "Microsoft.AspNet.Server.IIS": "1.0.0-*",
@@ -19,7 +20,7 @@
         "run": "run server.urls=http://localhost:5003"
     },
     "frameworks": {
-        "net451": { },
-        "k10": { }
+        "aspnet50": { },
+        "aspnetcore50": { }
     }
 }

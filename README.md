@@ -18,5 +18,11 @@ This project is part of ASP.NET vNext. You can find samples, documentation and g
 * **[CustomHost]:**
 	6. Run ```k run``` (This hosts the app in a console application - Application started at URL **http://localhost:5003/**)
 
+### To run the sample on Mac/Mono:
+* Follow [Home](https://github.com/aspnet/home) instructions to install mono, kvm on Mac
+* Open a command prompt and cd ```\src\BugTracker\```
+* Execute ``kpm restore```
+* Try `k Kestrel` to run the application
+
 ### Note:
 1. Application is started on different ports on different hosts. To change the port or URL modify ```Helios.cmd``` or project.json commands section in case of self-host and customhost.

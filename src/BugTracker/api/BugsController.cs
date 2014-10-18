@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace BugTracker.api
 {
-    [Route("api/bugs")]
+    [Route("api/bugs/[action]")]
     public class BugsController : Controller
     {
         IBugsRepository _bugsRepository = new BugsRepository();
@@ -18,7 +18,8 @@ namespace BugTracker.api
         {
             _hub = connectionManager.GetHubContext<BugHub>();
         }
-
+	
+	[HttpGet("~/api/bugs")]
         public IEnumerable<Bug> Get()
         {
             return _bugsRepository.GetBugs();

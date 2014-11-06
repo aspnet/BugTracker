@@ -5,7 +5,7 @@ This project is part of ASP.NET vNext. You can find samples, documentation and g
 ### Run the application on Helios:
 * Execute ```build.cmd``` to restore all the necessary packages, and run tests.
 **NOTE: Tests require Visual Studio 2014 LocalDB on the machine to run. 
-* Open MusicStore.sln in Visual Studio 2014 and run the individual applications on ```Helios```.
+* Open BugTracker.sln in Visual Studio 2014 and run the individual applications on ```Helios```.
 
 ### Run on WebListener/Kestrel:
 * Open a command prompt and cd ```\src\BugTracker\```

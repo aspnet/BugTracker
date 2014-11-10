@@ -4,9 +4,9 @@ This project is part of ASP.NET vNext. You can find samples, documentation and g
 The equivalent MVC5 project is in [https://bitbucket.org/howarddierking/demo-katana-bugs]([https://bitbucket.org/howarddierking/demo-katana-bugs).
 
 ### Run the application on Helios:
-* If you have Visual Studio 2014
-    1. Open BugTracker.sln in Visual Studio 2014 and run the application on ```Helios```. 
-* If you don't have Visual Studio 2014
+* If you have Visual Studio 2015
+    1. Open BugTracker.sln in Visual Studio 2015 and run the application. 
+* If you don't have Visual Studio 2015
     1. Open a command prompt and cd ```\src\BugTracker\```
     2. Execute ```kpm restore``` to restore all the necessary packages.
     3. Execute ```Helios.cmd``` to launch the app on IISExpress from command line (Application started at URL **http://localhost:5001/**).

@@ -3,6 +3,9 @@
 This project is part of ASP.NET vNext. You can find samples, documentation and getting started instructions for ASP.NET vNext at the [Home](https://github.com/aspnet/home) repo.
 The equivalent MVC5 project is in [https://bitbucket.org/howarddierking/demo-katana-bugs]([https://bitbucket.org/howarddierking/demo-katana-bugs).
 
+### Clone the repo
+* Clone the repo using git command on the local machine. 
+
 ### Run the application on Helios:
 * If you have Visual Studio 2015
     1. Open BugTracker.sln in Visual Studio 2015 and run the application. 

@@ -8,6 +8,7 @@ using System.Linq;
 
 namespace BugTracker.api
 {
+    [Route("api/bugs/[action]")]
     public class BugsController : Controller
     {
         IBugsRepository _bugsRepository = new BugsRepository();
@@ -17,13 +18,15 @@ namespace BugTracker.api
         {
             _hub = connectionManager.GetHubContext<BugHub>();
         }
-
+	
+	[HttpGet("~/api/bugs")]
         public IEnumerable<Bug> Get()
         {
             return _bugsRepository.GetBugs();
         }
 
         // Web API expects primitives coming from the request body to have no key value (e.g. '') - they should be encoded, then as '=value'
+        [HttpPost]
         public Bug BackLog(int id)
         {
             var bug = _bugsRepository.GetBugs().First(b => b.id == id);
@@ -34,6 +37,7 @@ namespace BugTracker.api
             return bug;
         }
 
+        [HttpPost]
         public Bug Working(int id)
         {
             var bug = _bugsRepository.GetBugs().First(b => b.id == id);
@@ -44,6 +48,7 @@ namespace BugTracker.api
             return bug;
         }
 
+        [HttpPost]
         public Bug Done(int id)
         {
             var bug = _bugsRepository.GetBugs().First(b => b.id == id);

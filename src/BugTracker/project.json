@@ -4,6 +4,7 @@
     ],
     "description": "BugTracker application on K",
     "version": "1.0.0-*",
+    "packExclude": "*.cmd",
     "webroot": "wwwroot",
     "dependencies": {
         "Kestrel": "1.0.0-*",

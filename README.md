@@ -28,5 +28,10 @@ The equivalent MVC5 project is in [https://bitbucket.org/howarddierking/demo-kat
 * Execute ``kpm restore```
 * Try `k Kestrel` to run the application
 
+### Deploy on Heroku
+Click the button below to deploy BugTracker on Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 ### Note:
 1. Application is started on different ports on different hosts. To change the port or URL modify ```Helios.cmd``` or project.json commands section in case of self-host and customhost.

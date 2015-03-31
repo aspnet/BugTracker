@@ -18,8 +18,6 @@
     <DevelopmentServerPort>49197</DevelopmentServerPort>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="CopyAspNetLoader.cmd" />
-    <Content Include="Helios.cmd" />
     <Content Include="Project.json" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config" />

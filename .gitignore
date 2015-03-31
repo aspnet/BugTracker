@@ -155,4 +155,8 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 
+# DNX
 project.lock.json
+
+# Visual Studio
+.vs/

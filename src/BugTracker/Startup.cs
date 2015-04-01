@@ -12,24 +12,23 @@ public class Startup
         // Add MVC services to the services container
         services.AddMvc();
 
-        //Add all SignalR related services to IoC.
+        // Add all SignalR related services to IoC.
         services.AddSignalR();
     }
 
     public void Configure(IApplicationBuilder app)
     {
-        /* Error page middleware displays a nice formatted HTML page for any unhandled exceptions in the request pipeline.
-        * Note: ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production.
-        */
+        // Error page middleware displays a nice formatted HTML page for any unhandled exceptions in the request pipeline.
+        // Note: ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production.
         app.UseErrorPage(ErrorPageOptions.ShowAll);
 
-        //Configure SignalR
+        // Configure SignalR
         app.UseSignalR();
 
-        //Serves static files in the application.
+        // Serves static files in the application.
         app.UseFileServer();
 
-        //Configure WebFx
+        // Configure WebFx
         app.UseMvc(routes =>
         {
             routes.MapRoute(

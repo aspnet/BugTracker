@@ -28,7 +28,7 @@ public class Startup
         // Serves static files in the application.
         app.UseFileServer();
 
-        // Configure WebFx
+        // Configure Mvc
         app.UseMvc(routes =>
         {
             routes.MapRoute(

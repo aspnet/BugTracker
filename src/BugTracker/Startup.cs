@@ -1,8 +1,7 @@
 using Microsoft.AspNet.Builder;
-using Microsoft.Framework.DependencyInjection;
 using Microsoft.AspNet.Diagnostics;
-using Microsoft.AspNet.Routing;
 using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.DependencyInjection;
 
 public class Startup
 {

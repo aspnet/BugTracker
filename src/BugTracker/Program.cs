@@ -1,15 +1,13 @@
-﻿using Microsoft.Framework.ConfigurationModel;
-using Microsoft.Framework.DependencyInjection;
-using Microsoft.Framework.DependencyInjection.Fallback;
-using Microsoft.AspNet.Hosting;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Hosting;
+using Microsoft.Framework.ConfigurationModel;
 
 namespace BugTracker
 {
     /// <summary>
-    /// This demonstrates how the application can be launched in a K console application. 
-    /// k run command in the application folder will invoke this.
+    /// This demonstrates how the application can be launched in a DNX console application. 
+    /// "dnx . run" command in the application folder will invoke this.
     /// </summary>
     public class Program
     {
@@ -22,28 +20,18 @@ namespace BugTracker
 
         public Task<int> Main(string[] args)
         {
-            //Add command line configuration source to read command line parameters.
             var config = new Configuration();
             config.AddCommandLine(args);
-            
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.Add(HostingServices.GetDefaultServices(config));
-            serviceCollection.AddInstance<IHostingEnvironment>(new HostingEnvironment() { WebRoot = "wwwroot" });
-            var services = serviceCollection.BuildServiceProvider(_hostServiceProvider);
+            config.AddEnvironmentVariables();
 
             var context = new HostingContext()
             {
-                Services = services,
                 Configuration = config,
-                ServerName = "Microsoft.AspNet.Server.WebListener",
-                ApplicationName = "BugTracker"
+                ApplicationName = "BugTracker",
+                ServerFactoryLocation = "Microsoft.AspNet.Server.WebListener",
             };
 
-            var engine = services.GetService<IHostingEngine>();
-            if (engine == null)
-            {
-                throw new Exception("TODO: IHostingEngine service not available exception");
-            }
+            var engine = new HostingEngine(_hostServiceProvider);
 
             using (engine.Start(context))
             {
@@ -51,6 +39,7 @@ namespace BugTracker
                 Console.WriteLine("Press any key to stop the server");
                 Console.ReadLine();
             }
+
             return Task.FromResult(0);
         }
     }

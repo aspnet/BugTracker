@@ -1,10 +1,10 @@
-﻿using BugTracker.Hubs;
+﻿using System.Collections.Generic;
+using System.Linq;
+using BugTracker.Hubs;
 using BugTracker.Model;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Infrastructure;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace BugTracker.api
 {
@@ -18,8 +18,8 @@ namespace BugTracker.api
         {
             _hub = connectionManager.GetHubContext<BugHub>();
         }
-	
-	[HttpGet("~/api/bugs")]
+
+        [HttpGet("~/api/bugs")]
         public IEnumerable<Bug> Get()
         {
             return _bugsRepository.GetBugs();

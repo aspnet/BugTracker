@@ -1,27 +1,23 @@
 {
-    "authors": [
-        "Microsoft"
-    ],
-    "description": "BugTracker application on K",
-    "version": "1.0.0-*",
-    "packExclude": "*.cmd",
-    "webroot": "wwwroot",
-    "dependencies": {
-        "Kestrel": "1.0.0-*",
-        "Microsoft.AspNet.Server.IIS": "1.0.0-*",
-        "Microsoft.AspNet.Mvc": "6.0.0-*",
-        "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
-        "Microsoft.AspNet.Diagnostics": "1.0.0-*",
-        "Microsoft.AspNet.StaticFiles": "1.0.0-*",
-        "Microsoft.AspNet.SignalR.Server": "3.0.0-*"
-    },
-    "commands": {
-        "WebListener": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5002",
-        "Kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004",
-        "run": "run server.urls=http://localhost:5003"
-    },
-    "frameworks": {
-        "dnx451": { },
-        "dnxcore50": { }
-    }
+  "authors": [ "Microsoft" ],
+  "description": "BugTracker application on ASP.NET 5",
+  "version": "1.0.0-*",
+  "packExclude": "*.cmd",
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+  "dependencies": {
+    "Microsoft.AspNet.Diagnostics": "1.0.0-*",
+    "Microsoft.AspNet.Mvc": "6.0.0-*",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
+    "Microsoft.AspNet.SignalR.Server": "3.0.0-*",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-*"
+  },
+  "commands": {
+    "web": "Microsoft.AspNet.Server.Kestrel"
+  },
+  "frameworks": {
+    "dnx451": { },
+    "dnxcore50": { }
+  }
 }

@@ -1,13 +1,9 @@
 using Microsoft.AspNet.Builder;
-using Microsoft.Framework.DependencyInjection;
-using Microsoft.AspNet.Diagnostics;
-using Microsoft.AspNet.Routing;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.AspNet.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 public class Startup
 {
-    public IConfiguration Configuration { get; private set; }
-
     public void ConfigureServices(IServiceCollection services)
     {
         // Add MVC services to the services container
@@ -17,12 +13,14 @@ public class Startup
         services.AddSignalR();
     }
 
-    public void Configure(IApplicationBuilder app)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-        /* Error page middleware displays a nice formatted HTML page for any unhandled exceptions in the request pipeline.
-        * Note: ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production.
-        */
-        app.UseErrorPage(ErrorPageOptions.ShowAll);
+        if (env.IsDevelopment())
+        {
+            /* Error page middleware displays a nice formatted HTML page for any unhandled exceptions in the request pipeline.
+            */
+            app.UseDeveloperExceptionPage();
+        }
 
         //Configure SignalR
         app.UseSignalR();
@@ -30,7 +28,7 @@ public class Startup
         //Serves static files in the application.
         app.UseFileServer();
 
-        //Configure WebFx
+        // Configure MVC
         app.UseMvc(routes =>
         {
             routes.MapRoute(
@@ -48,5 +46,15 @@ public class Startup
                 "api/{controller}",
                 new { controller = "Home" });
         });
+    }
+
+    public static void Main(string[] args)
+    {
+        var application = new WebApplicationBuilder()
+            .UseConfiguration(WebApplicationConfiguration.GetDefault(args))
+            .UseStartup<Startup>()
+            .Build();
+
+        application.Run();
     }
 }

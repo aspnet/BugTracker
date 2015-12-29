@@ -11,7 +11,7 @@ namespace BugTracker.Model
             _repo = new List<Bug>();
 
             //add some default values
-            _repo.Add(new Bug { id = 1, title = "bug #1", description = "first bug", state = "backlog"});
+            _repo.Add(new Bug { id = 1, title = "bug #1", description = "first bug", state = "backlog" });
             _repo.Add(new Bug { id = 2, title = "bug #2", description = "second bug", state = "working" });
             _repo.Add(new Bug { id = 3, title = "bug #3", description = "third bug", state = "done" });
             _repo.Add(new Bug { id = 4, title = "bug #4", description = "fourth bug", state = "backlog" });

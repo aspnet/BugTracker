@@ -1,0 +1,7 @@
+{
+    "name": "BugTracker",
+    "description": "ASP.NET vNext Sample app",
+    "env": {
+	"BUILDPACK_URL": "https://github.com/friism/heroku-buildpack-mono#aspnet-vnext-nightly"
+    }
+}

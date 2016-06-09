@@ -1,14 +1,14 @@
-﻿using Microsoft.Framework.ConfigurationModel;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Hosting;
+using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.DependencyInjection.Fallback;
-using Microsoft.AspNet.Hosting;
-using System;
-using System.Threading.Tasks;
 
 namespace BugTracker
 {
     /// <summary>
-    /// This demonstrates how the application can be launched in a K console application. 
+    /// This demonstrates how the application can be launched in a K console application.
     /// k run command in the application folder will invoke this.
     /// </summary>
     public class Program
@@ -25,11 +25,9 @@ namespace BugTracker
             //Add command line configuration source to read command line parameters.
             var config = new Configuration();
             config.AddCommandLine(args);
-            
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.Add(HostingServices.GetDefaultServices(config));
-            serviceCollection.AddInstance<IHostingEnvironment>(new HostingEnvironment() { WebRoot = "wwwroot" });
-            var services = serviceCollection.BuildServiceProvider(_hostServiceProvider);
+
+            var serviceCollection = HostingServices.Create(_hostServiceProvider);
+            var services = serviceCollection.BuildServiceProvider();
 
             var context = new HostingContext()
             {
